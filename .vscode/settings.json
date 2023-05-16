@@ -1,0 +1,10 @@
+{
+  "dotenv.enableAutocloaking": false,
+  "cSpell.words": [
+    "cloudinary",
+    "googleusercontent",
+    "prismadb",
+    "superjson",
+    "waxhkeg"
+  ]
+}

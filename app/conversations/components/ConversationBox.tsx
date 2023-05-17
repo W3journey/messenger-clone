@@ -2,7 +2,6 @@
 
 import { useCallback, useMemo } from "react"
 import { useRouter } from "next/navigation"
-import { Conversation, Message, User } from "@prisma/client"
 import { format } from "date-fns"
 import { useSession } from "next-auth/react"
 import clsx from "clsx"
@@ -10,6 +9,7 @@ import { FullConversationType } from "@/app/types"
 import useOtherUser from "@/app/hooks/useOtherUser"
 import Avatar from "@/app/components/Avatar"
 import AvatarGroup from "@/app/components/AvatarGroup"
+import { HiBellAlert } from "react-icons/hi2"
 
 interface ConversationBoxProps {
   data: FullConversationType
@@ -89,14 +89,17 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               </p>
             )}
           </div>
-          <p
-            className={clsx(
-              "truncate text-sm",
-              hasSeen ? "text-gray-500" : "text-black font-medium"
-            )}
-          >
-            {lastMessageText}
-          </p>
+          <div className="flex justify-between">
+            <p
+              className={clsx(
+                "truncate text-sm",
+                hasSeen ? "text-gray-500" : "text-black font-medium"
+              )}
+            >
+              {lastMessageText}
+            </p>
+            {!hasSeen && <HiBellAlert className="w-5 h-5 text-blue-500" />}
+          </div>
         </div>
       </div>
     </div>
